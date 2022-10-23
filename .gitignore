@@ -1,0 +1,6 @@
+*password*
+*.class
+
+*.iml
+.idea/
+out/
