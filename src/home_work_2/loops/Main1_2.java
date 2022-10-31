@@ -10,17 +10,18 @@ public class Main1_2 {
             }
             return;
         }
-        int lastNumber = Integer.parseInt(args[0]);
-        System.out.println(factorial(lastNumber));
+        char[] setOfNumbers = args[0].toCharArray();
+        long result = 1L;
+        for (int i = 0; i < setOfNumbers.length; i++) {
+            int number = Integer.parseInt(String.valueOf(setOfNumbers[i]));
+            System.out.print(number);
+            if(i != setOfNumbers.length - 1) {
+                System.out.print(" * ");
+            }
+            result = Math.multiplyExact(number, result);
+        }
+        System.out.print(" = " + result);
     }
 
-    static long factorial(int number) {
-        long result;
-        if(number == 1) {
-            return 1;
-        } else {
-            result = Math.multiplyExact(factorial(number - 1), number);
-            return result;
-        }
-    }
+
 }

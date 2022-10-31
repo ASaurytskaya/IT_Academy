@@ -11,10 +11,27 @@ public class Main1_1 {
             return;
         }
         int lastNumber = Integer.parseInt(args[0]);
+        /*
+         * Решение с использованием цикла.
+         */
         long result = 1L;
         for(int i = 1; i <= lastNumber; i++) {
             result = Math.multiplyExact(i, result);
         }
         System.out.println(result);
+        /*
+         * Решение с использованием рекурсивного метода.
+         */
+        System.out.println(factorial(lastNumber));
+    }
+
+    static long factorial(int number) {
+        long result;
+        if(number == 1) {
+            return 1;
+        } else {
+            result = Math.multiplyExact(factorial(number - 1), number);
+            return result;
+        }
     }
 }
