@@ -8,23 +8,9 @@ public class Main1_3 {
         String n1 = "", n2 = "";
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("Введите первое число:");
-            n1 = reader.readLine();
-            while(!isNumber(n1)) {
-                System.out.println("Ошибка: введено не число.");
-                System.out.println("Введите первое число:");
-                n1 = reader.readLine();
-            }
+            n1 = NumberEntry.enterNumber(reader);
             System.out.println("Введите второе число (целое, положительное):");
-            n2 = reader.readLine();
-            while(!isIntegerNumber(n2)) {
-                if(!isNumber(n2)) {
-                    System.out.println("Ошибка: введено не число.");
-                } else {
-                    System.out.println("Ошибка: введено не целое число.");
-                }
-                System.out.println("Введите второе число (целое, положительное):");
-                n2 = reader.readLine();
-            }
+            n2 = NumberEntry.enterPositiveInteger(reader);
         } catch(Exception ignore) {}
 
         double numberOne = Double.parseDouble(n1);
@@ -37,13 +23,5 @@ public class Main1_3 {
             result *=numberOne;
         }
         System.out.printf("%f ^ %d = %f", numberOne, numberTwo, result);
-    }
-
-    public static boolean isNumber(String s) {
-       return(s.matches("[0-9]+") || s.matches("[0-9]+\\.[0-9]+"));
-    }
-
-    public static boolean isIntegerNumber(String s) {
-        return s.matches("[0-9]+");
     }
 }

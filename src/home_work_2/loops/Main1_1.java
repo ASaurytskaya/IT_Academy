@@ -5,6 +5,8 @@ public class Main1_1 {
         if(!args[0].matches("[0-9]+")) {
             if(args[0].matches("[0-9]+\\.[0-9]+")) {
                 System.out.println("Ошибка: введено не целое число.");
+            } else if(args[0].matches("[-0-9]+\\.[0-9]+") || args[0].matches("-[0-9]+")) {
+                System.out.println("Ошибка: введено отрицательное число.");
             } else {
                 System.out.println("Ошибка: введено не число.");
             }

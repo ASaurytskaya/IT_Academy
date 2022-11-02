@@ -9,35 +9,18 @@ public class Main1_5 {
         int min = 0, max = 0, step = 0;
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("Введите натуральное целое число:");
-            n1 = reader.readLine();
-            while(!n1.matches("[0-9]+")) {
-                System.out.println("Ошибка: введено не число.");
-                System.out.println("Введите натуральное целое число:");
-                n1 = reader.readLine();
-            }
+            n1 = NumberEntry.enterNaturalInteger(reader);
+
             System.out.println("Введите минимальное натуральное число из диапазона:");
-            String s1  = reader.readLine();
-            while(!s1.matches("[0-9]+")) {
-                System.out.println("Ошибка: введено не число.");
-                System.out.println("Введите натуральное целое число:");
-                s1 = reader.readLine();
-            }
+            String s1  = NumberEntry.enterNaturalInteger(reader);
             min = Integer.parseInt(s1);
+
             System.out.println("Введите максимальное натуральное число из диапазона:");
-            String s2  = reader.readLine();
-            while(!s2.matches("[0-9]+")) {
-                System.out.println("Ошибка: введено не число.");
-                System.out.println("Введите натуральное целое число:");
-                s2 = reader.readLine();
-            }
+            String s2  = NumberEntry.enterNaturalInteger(reader);
             max = Integer.parseInt(s2);
+
             System.out.println("Введите размер шага:");
-            String s3  = reader.readLine();
-            while(!s3.matches("[0-9]+")) {
-                System.out.println("Ошибка: введено не число.");
-                System.out.println("Введите натуральное целое число:");
-                s3 = reader.readLine();
-            }
+            String s3  = NumberEntry.enterNaturalInteger(reader);
             step = Integer.parseInt(s3);
         } catch(Exception ignore) {}
         System.out.println("Наибольшая цифра в числе " + n1 + " - " + findMaxNumber(n1));
