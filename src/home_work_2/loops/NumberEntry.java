@@ -4,12 +4,11 @@ import java.io.BufferedReader;
 
 public class NumberEntry {
     public static boolean isNumber(String s) {
-        return(s.matches("[0-9]+") || s.matches("[0-9]+\\.[0-9]+") ||
-                s.matches("-[0-9]+") || s.matches("-[0-9]+\\.[0-9]+"));
+        return(s.matches("-?[0-9]+") || s.matches("-?[0-9]+\\.[0-9]+"));
     }
 
     public static boolean isInteger(String s) {
-        return s.matches("[0-9]+") || s.matches("-[0-9]+");
+        return s.matches("-?[0-9]+");
     }
 
     public static boolean isPositiveInteger(String s) {

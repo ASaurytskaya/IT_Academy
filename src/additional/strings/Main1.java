@@ -1,7 +1,5 @@
 package additional.strings;
 
-import java.text.Format;
-
 public class Main1 {
     public static void main(String[] args) {
         System.out.println(toString(-999_999_999));
