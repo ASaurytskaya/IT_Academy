@@ -18,9 +18,13 @@ public class Main1_1 {
          */
         long result = 1L;
         for(int i = 1; i <= lastNumber; i++) {
+            System.out.print(i);
+            if(i != lastNumber) {
+                System.out.print(" * ");
+            }
             result = Math.multiplyExact(i, result);
         }
-        System.out.println(result);
+        System.out.println(" = " + result);
         /*
          * Решение с использованием рекурсивного метода.
          */
