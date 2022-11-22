@@ -2,11 +2,11 @@ package home_work_3.calcs.additional;
 
 import home_work_3.calcs.api.ICalculator;
 
-public class CalculatorWithCounterAutoAgregationInterface {
+public class CalculatorWithCounterAutoDecorator implements ICalculator {
     private ICalculator calculator;
     private long countOperation;
 
-    public CalculatorWithCounterAutoAgregationInterface(ICalculator calculator) {
+    public CalculatorWithCounterAutoDecorator(ICalculator calculator) {
         this.calculator = calculator;
     }
 
@@ -47,5 +47,9 @@ public class CalculatorWithCounterAutoAgregationInterface {
 
     public long getCountOperation(){
         return countOperation;
+    }
+
+    public ICalculator getCalculator() {
+        return  this.calculator;
     }
 }
