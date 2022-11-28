@@ -21,12 +21,18 @@ public class Main4_4 {
             return;
         }
 
-        double result = number / 8.0;
         if(choice == 1) {
-            System.out.printf("%d бит - это %.3f байт", number, result);
+            System.out.printf("%d бит - это %.3f байт", number, toByte(number));
         } else {
-            System.out.printf("%d бит - это %f килобайт", number, result / 1000);
+            System.out.printf("%d бит - это %f килобайт", number, toKilobyte(number));
         }
+    }
 
+    public static double toByte(int a) {
+        return a / 8.0;
+    }
+
+    public static double toKilobyte(int a) {
+        return a / 8.0 / 1000;
     }
 }

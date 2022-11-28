@@ -13,8 +13,7 @@ public class Main5 {
         }
     }
 
-    static boolean sleepIn(boolean weekday,  boolean vacation) {
-        boolean sleepy = !weekday || vacation;
-        return sleepy;
+    public static boolean sleepIn(boolean weekday,  boolean vacation) {
+        return !weekday || vacation;
     }
 }

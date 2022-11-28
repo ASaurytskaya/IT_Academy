@@ -14,10 +14,14 @@ public class Main4_5 {
             return;
         }
 
-        if((number >= 65 && number <= 90) || (number >= 97 && number <= 122)) {
+        if(isEnglishLetter(number)) {
             System.out.println("Код " + number + " соответствует букве английского алфавита.");
         } else {
             System.out.println("Код " + number + " не соответствует букве английского алфавита.");
         }
+    }
+
+    public static boolean isEnglishLetter(int number) {
+        return (number >= 65 && number <= 90) || (number >= 97 && number <= 122);
     }
 }

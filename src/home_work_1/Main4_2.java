@@ -23,12 +23,16 @@ public class Main4_2 {
             return;
         }
 
+        System.out.println(findAverageNumber(numberOne, numberTwo, numberThree));
+    }
+
+    public static int findAverageNumber(int numberOne, int numberTwo, int numberThree) {
         if((numberOne > numberTwo && numberOne < numberThree) || (numberOne > numberThree && numberOne < numberTwo)) {
-            System.out.println(numberOne);
+            return (numberOne);
         } else if((numberTwo > numberOne && numberTwo < numberThree) || (numberTwo > numberThree && numberTwo < numberOne)) {
-            System.out.println(numberTwo);
+            return (numberTwo);
         } else {
-            System.out.println(numberThree);
+            return (numberThree);
         }
     }
 }

@@ -15,16 +15,18 @@ public class Main4_3 {
             System.out.println("Неверно введены значения.");
             return;
         }
+        System.out.println(printModulo(numberOne, numberTwo));
+    }
 
+    public static String printModulo(int numberOne, int numberTwo) {
         int result = numberOne / numberTwo;
         int modulo = numberOne % numberTwo;
         if(modulo == 0) {
-            System.out.printf("Число %d делится на число %d без остатка, частное равно %d.",
+            return String.format("Число %d делится на число %d без остатка, частное равно %d.",
                     numberOne, numberTwo, result);
         } else {
-            System.out.printf("Число %d не делится на число %d, частное равно %d, остаток равен %d.",
+            return String.format("Число %d не делится на число %d, частное равно %d, остаток равен %d.",
                     numberOne, numberTwo, result, modulo);
         }
-
     }
 }

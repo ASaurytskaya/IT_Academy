@@ -16,12 +16,19 @@ public class Main1 {
             System.out.println("Неверно введены значения.");
             return;
         }
-        int resultAnd = numberOne & numberTwo; //00000101 & 00001001 = 00000001
-        int resultOr = numberOne | numberTwo; //00000101 & 00001001 = 00001101
+
         System.out.printf("Результат, полученный при использовании побитового И для чисел %d и %d, равен %d.\n",
-                            numberOne, numberTwo, resultAnd);
+                            numberOne, numberTwo, binaryAnd(numberOne, numberTwo));
         System.out.printf("Результат, полученный при использовании побитового ИЛИ для чисел %d и %d, равен %d.",
-                numberOne, numberTwo, resultOr);
+                numberOne, numberTwo, binaryOr(numberOne, numberTwo));
+    }
+
+    public static int binaryAnd(int a, int b) {
+        return a & b;
+    }
+
+    public static int binaryOr(int a, int b) {
+        return a | b;
     }
 }
 /*

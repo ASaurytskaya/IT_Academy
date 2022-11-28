@@ -13,19 +13,18 @@ public class Main4_6 {
             System.out.println("Неверно введено значение.");
             return;
         }
-
-        if(year % 100 == 0) {
-            if(year % 400 == 0) {
-                System.out.println("Високосный год.");
-            } else {
-                System.out.println("Невисокосный год.");
-            }
+        if(isLeapYear(year)) {
+            System.out.println("Високосный год.");
         } else {
-            if(year % 4 == 0) {
-                System.out.println("Високосный год.");
-            } else {
-                System.out.println("Невисокосный год.");
-            }
+            System.out.println("Невисокосный год.");
+        }
+    }
+
+    public static boolean isLeapYear(int year) {
+        if(year % 100 == 0) {
+            return year % 400 == 0;
+        } else {
+            return year % 4 == 0;
         }
     }
 }
