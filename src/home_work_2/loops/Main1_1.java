@@ -1,37 +1,21 @@
 package home_work_2.loops;
 
 public class Main1_1 {
-    public static void main(String[] args) {
-        if(!args[0].matches("[0-9]+")) {
-            if(args[0].matches("[0-9]+\\.[0-9]+")) {
-                System.out.println("Ошибка: введено не целое число.");
-            } else if(args[0].matches("[-0-9]+\\.[0-9]+") || args[0].matches("-[0-9]+")) {
-                System.out.println("Ошибка: введено отрицательное число.");
-            } else {
-                System.out.println("Ошибка: введено не число.");
-            }
-            return;
-        }
-        int lastNumber = Integer.parseInt(args[0]);
-        /*
-         * Решение с использованием цикла.
-         */
+
+    public static long printFactorialLoop(int number) {
         long result = 1L;
-        for(int i = 1; i <= lastNumber; i++) {
+        for(int i = 1; i <= number; i++) {
             System.out.print(i);
-            if(i != lastNumber) {
+            if(i != number) {
                 System.out.print(" * ");
             }
             result = Math.multiplyExact(i, result);
         }
         System.out.println(" = " + result);
-        /*
-         * Решение с использованием рекурсивного метода.
-         */
-        System.out.println(factorial(lastNumber));
+        return  result;
     }
 
-    static long factorial(int number) {
+    public static long factorial(int number) {
         long result;
         if(number == 1) {
             return 1;

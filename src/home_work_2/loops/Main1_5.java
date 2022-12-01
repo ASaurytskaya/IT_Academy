@@ -1,47 +1,9 @@
 package home_work_2.loops;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 public class Main1_5 {
-    public static void main(String[] args) {
-        String n1 = "";
-        int min = 0, max = 0, step = 0;
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            System.out.println("Введите натуральное целое число:");
-            n1 = NumberEntry.enterNaturalInteger(reader);
 
-            System.out.println("Введите минимальное натуральное число из диапазона:");
-            String s1  = NumberEntry.enterNaturalInteger(reader);
-            min = Integer.parseInt(s1);
-
-            System.out.println("Введите максимальное натуральное число из диапазона:");
-            String s2  = NumberEntry.enterNaturalInteger(reader);
-            max = Integer.parseInt(s2);
-
-            System.out.println("Введите размер шага:");
-            String s3  = NumberEntry.enterNaturalInteger(reader);
-            step = Integer.parseInt(s3);
-        } catch(Exception ignore) {}
-        System.out.println("Наибольшая цифра в числе " + n1 + " - " + findMaxNumber(n1));
-
-        int sampleSize = 1000;
-        System.out.println("Количество четных чисел в " + sampleSize + " случайно сгенерированных - " + generateRandomNumbers(sampleSize));
-
-        System.out.println("В числе " + n1 + " четных цифр - " + findEvenNumbers(n1) + " и нечетных цифр - " + findOddNumbers(n1));
-
-        int seriesLength = 10;
-        printFibonacci(seriesLength);
-        System.out.println();
-
-        printSeriesOfNumbers(min, max, step);
-        System.out.println();
-
-        System.out.println("Число " + n1 + " обратно по порядку входящих в него цифр числу " + revertNumber(Integer.parseInt(n1)));
-    }
-
-    public static int findMaxNumber (String number) {
-        char[] numbers = number.toCharArray();
+    public static int findMaxNumber (int number) {
+        char[] numbers = String.valueOf(number).toCharArray();
         int max = Integer.parseInt(String.valueOf(numbers[0]));
         for (int i = 1; i < numbers.length; i++) {
             int a = Integer.parseInt(String.valueOf(numbers[i]));
@@ -87,37 +49,51 @@ public class Main1_5 {
         return counter;
     }
 
-    public static void printFibonacci(int size) {
+    public static int[] calculateFibonacci(int size) {
+        if(size == 0) {
+            return new int[0];
+        }
         int[] array = new int[size];
         array[0] = 0;
+        if(size == 1) {
+            return array;
+        }
         array[1] = 1;
-        System.out.print("0 1 ");
         for(int i = 2; i < size; i++) {
             array[i] = array[i - 1] + array[i - 2];
-            System.out.print(array[i] + " ");
         }
+        return array;
     }
 
-    public static void printSeriesOfNumbers(int min, int max, int step) {
+    public static String createSeriesOfNumbers(int min, int max, int step) {
         if(min >= max) {
-            System.out.println("Неверно указан диапазон чисел.");
-            return;
+            return "Неверно указан диапазон чисел.";
         }
         if(step == 0) {
-            System.out.println("Неверно указан шаг (0). Невозможно заполнить диапазон.");
-            return;
+            return "Неверно указан шаг (0). Невозможно заполнить диапазон.";
         }
+        String result = "";
         for(int i = min; i <= max; i += step) {
-            System.out.print(i + " ");
+            result += i + " ";
         }
+        return result;
     }
 
     public static int revertNumber(int number) {
+        boolean isNegative = false;
         char[] arrayForward = String.valueOf(number).toCharArray();
         String numberRev = "";
         for (char c : arrayForward) {
+            if(c == '-') {
+                isNegative = true;
+                continue;
+            }
             numberRev = Integer.parseInt(String.valueOf(c)) + numberRev;
         }
-        return Integer.parseInt(numberRev);
+        int result = Integer.parseInt(numberRev);
+        if(isNegative) {
+            return -result;
+        }
+        return result;
     }
 }

@@ -1,17 +1,15 @@
 package home_work_2.loops;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 public class Main1_4 {
-    public static void main(String[] args) {
-        long a = 1;
-        int b = 0;
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            System.out.println("Введите натуральное целое число больше 1:");
-            String s  = NumberEntry.enterInteger(reader);
-            b = Integer.parseInt(s);
-        } catch(Exception ignore) {}
+
+    public static String multiplyToOverflowAndPrint(int b) {
+        if(b == 0) {
+            return "При умножении на ноль переполнение невозможно.";
+        }
+        if(b == 1 || b == -1) {
+            return "При умножении на единицу переполнение невозможно.";
+        }
+        long a = 1L;
         long multiplication1 = a * b;
         long multiplication2 = multiplication1 * b;
         if(b == 2) {
@@ -30,7 +28,6 @@ public class Main1_4 {
                 multiplication2 *= b;
             }
         }
-        System.out.println("Число до переполнения    - " + multiplication1);
-        System.out.println("Число после переполнения - " + multiplication2);
+        return String.format("Число до переполнения    - %s\nЧисло после переполнения - %s", multiplication1, multiplication2);
     }
 }
