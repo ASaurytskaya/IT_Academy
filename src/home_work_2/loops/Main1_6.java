@@ -2,24 +2,33 @@ package home_work_2.loops;
 
 public class Main1_6 {
     public static void main(String[] args) {
+        int startNumber = 2;
+        int maxCountColumnsInRow = 4;
+        int countColumns = 7;
 
-        String[] array = new String[80];
-        for (int i = 0; i < 80; ) {
-            for (int j = 2; j < 10; j++) {
-                for (int k = 1; k < 11; k++) {
-                    array[i] =  String.format("%d x %2d = %2d", j, k, j * k);
-                    i++;
-                }
+        printTable(startNumber, maxCountColumnsInRow, countColumns);
+    }
+
+    public static void printTable(int startNumber, int maxCountColumnsInRow, int countColumns) {
+        int countRows = (int) Math.ceil((double) countColumns / maxCountColumnsInRow);
+        System.out.println("Таблица умножения");
+        for(int i = 0; i < countRows; i++) {
+            int currentTo = startNumber + maxCountColumnsInRow + i * maxCountColumnsInRow - 1;
+            int tmp = countColumns - i * maxCountColumnsInRow;
+            if(tmp < maxCountColumnsInRow) {
+                currentTo = startNumber + i * maxCountColumnsInRow + tmp - 1;
             }
+            printRow((startNumber + i * maxCountColumnsInRow), currentTo);
+            System.out.println("");
         }
-        System.out.println("                       ТАБЛИЦА                   ");
-        System.out.println("                      УМНОЖЕНИЯ                  ");
-        for (int i = 0; i < 10; i++) {
-            System.out.printf("%s   %s   %s   %s\n", array[i], array[i+10], array[i+20], array[i+30]);
-        }
-        System.out.println();
-        for (int i = 40; i < 50; i++) {
-            System.out.printf("%s   %s   %s   %s\n", array[i], array[i+10], array[i+20], array[i+30]);
+    }
+
+    public static void printRow(int from, int to) {
+        for(int i = 1; i <= 10; i++) {
+            for(int j = from; j <= to; j++) {
+                System.out.print(j + " * " + i + " = " + (j * i) + "\t\t");
+            }
+            System.out.println("");
         }
     }
 }

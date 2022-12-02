@@ -50,7 +50,7 @@ public class Main2_4 {
 
     public static int findMaxWithEvenIndex(int[] array) {
         int max = array[0];
-        for (int i = 1; i < array.length; i++) {
+        for (int i = 0; i < array.length; i += 2) {
             if(max < array[i]) {
                 max = array[i];
             }
@@ -64,7 +64,7 @@ public class Main2_4 {
         for(int number : array) {
             sum += number;
         }
-        int average = Math.toIntExact(sum / array.length);
+        double average = sum / (double) array.length;
         int counter = 0;
         for(int number : array) {
             if(number < average) {
@@ -116,7 +116,7 @@ public class Main2_4 {
     public static long addAllDigits(int[] array) {
         long sum = 0;
         for(int number : array) {
-            String n = "" + number;
+            String n = "" + Math.abs(number);
             char[] set = n.toCharArray();
             for(char c : set) {
                 int i = Integer.parseInt(String.valueOf(c));
