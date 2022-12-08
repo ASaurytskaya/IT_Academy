@@ -2,7 +2,7 @@ package home_work_5.comparators;
 
 import java.util.Comparator;
 
-public class StringComparator <T extends Number> implements Comparator<T> {
+public class StringLengthComparator <T extends String> implements Comparator<T> {
     @Override
     public int compare(T o1, T o2) {
         if(o1 == null && o2 == null) {
@@ -14,12 +14,6 @@ public class StringComparator <T extends Number> implements Comparator<T> {
         if(o1 == null && o2 != null) {
             return -1;
         }
-        int i = o1.toString().length() - o2.toString().length();
-        if(i > 0) {
-            return 1;
-        } else if(i < 0) {
-            return -1;
-        }
-        return 0;
+        return o1.length() - o2.length();
     }
 }

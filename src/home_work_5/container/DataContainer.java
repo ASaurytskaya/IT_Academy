@@ -1,8 +1,8 @@
-package home_work_5;
+package home_work_5.container;
 
 import java.util.*;
 
-public class DataContainer<T> {
+public class DataContainer<T> implements Iterable{
     private T[] data;
     private int countElements = 0;
 
@@ -12,8 +12,7 @@ public class DataContainer<T> {
 
     public int add(T item) {
         if(data.length == 0) {
-            T[] tmp = Arrays.copyOf(data, 2);
-            data = tmp;
+            data = Arrays.copyOf(data, 2);
         }
         if(countElements == data.length) {
             data = Arrays.copyOf(data, data.length + 1);
@@ -62,15 +61,6 @@ public class DataContainer<T> {
         return this.delete(index);
     }
 
-    //
-    public int getLength() {
-        return data.length;
-    }
-    //
-    public int getCountElements() {
-        return countElements;
-    }
-
     public void sort(Comparator<T> comparator) {
         for(int i = 0; i < data.length - 1; i++) {
             for(int j = data.length - 1; j > i; j--) {
@@ -83,20 +73,53 @@ public class DataContainer<T> {
         }
     }
 
+    public static void sort(DataContainer<? extends Comparable> container) {
+        container.sort(Comparator.naturalOrder());
+    }
+
+    public static void sort(DataContainer<? extends Comparable> container, Comparator comparator) {
+        container.sort(comparator);
+    }
+
     public String toString() {
-        String start = "[";
-        String end = "]";
         String result = "";
-        for(int i = 0; i < data.length; i++) {
-            if(data[i] == null) {
+        int count = 0;
+        for(T element : data) {
+            count++;
+            if(element == null) {
                 continue;
             }
-            result += data[i].toString();
-            if(i < data.length - 1) {
-                result += ", ";
+            result += element.toString();
+            if(count == data.length) {
+                break;
             }
+            result += ", ";
         }
 
         return "[" + result + "]";
+    }
+
+    @Override
+    public Iterator iterator() {
+        return new DataIterator();
+    }
+
+    private class DataIterator implements Iterator {
+        private int cursor = 0;
+
+        @Override
+        public boolean hasNext() {
+            return cursor < data.length;
+        }
+
+        @Override
+        public T next() {
+            int i = cursor;
+            if (i >= data.length) {
+               throw new NoSuchElementException();
+            }
+            cursor = i + 1;
+            return data[i];
+        }
     }
 }
