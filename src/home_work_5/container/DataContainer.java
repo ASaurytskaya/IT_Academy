@@ -8,12 +8,10 @@ public class DataContainer<T> implements Iterable{
 
     public DataContainer(T[] ar) {
         this.data = ar;
+        countElements = data.length;
     }
 
     public int add(T item) {
-        if(data.length == 0) {
-            data = Arrays.copyOf(data, 2);
-        }
         if(countElements == data.length) {
             data = Arrays.copyOf(data, data.length + 1);
         }
@@ -74,7 +72,7 @@ public class DataContainer<T> implements Iterable{
     }
 
     public static void sort(DataContainer<? extends Comparable> container) {
-        container.sort(Comparator.naturalOrder());
+        container.sort(Comparator.nullsFirst(Comparator.naturalOrder()));
     }
 
     public static void sort(DataContainer<? extends Comparable> container, Comparator comparator) {
