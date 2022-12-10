@@ -13,12 +13,13 @@ public class DataContainerTest {
     @Test
     @DisplayName("Add number")
     public void add1() {
-        Assertions.assertEquals(5, container.add(0));
+        Assertions.assertEquals(2, container.add(0));
     }
 
     @Test
     @DisplayName("Add null")
     public void add2() {
+        container.add(0);
         Assertions.assertEquals(5, container.add(null));
     }
 
