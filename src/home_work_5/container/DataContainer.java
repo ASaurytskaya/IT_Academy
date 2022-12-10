@@ -12,6 +12,11 @@ public class DataContainer<T> implements Iterable{
     }
 
     public int add(T item) {
+        for(T element : data) {
+            if(element == null) {
+                element = item;
+            }
+        }
         if(countElements == data.length) {
             data = Arrays.copyOf(data, data.length + 1);
         }
