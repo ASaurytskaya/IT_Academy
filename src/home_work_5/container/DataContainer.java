@@ -12,9 +12,10 @@ public class DataContainer<T> implements Iterable{
     }
 
     public int add(T item) {
-        for(T element : data) {
-            if(element == null) {
-                element = item;
+        for(int i = 0; i < data.length; i++) {
+            if(data[i] == null) {
+                data[i] = item;
+                return i;
             }
         }
         if(countElements == data.length) {
