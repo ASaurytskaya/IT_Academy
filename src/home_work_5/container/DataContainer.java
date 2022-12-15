@@ -12,6 +12,9 @@ public class DataContainer<T> implements Iterable{
     }
 
     public int add(T item) {
+        if(item == null) {
+            return -1;
+        }
         for(int i = 0; i < data.length; i++) {
             if(data[i] == null) {
                 data[i] = item;
@@ -26,14 +29,14 @@ public class DataContainer<T> implements Iterable{
     }
 
     public T get(int index) {
-        if(index >= countElements)  {
+        if(index >= countElements || index < 0)  {
             return null;
         }
         return data[index];
     }
 
     public T[] getItems() {
-        return data;
+        return Arrays.copyOf(data, data.length);
     }
 
     public boolean delete(int index) {
@@ -86,21 +89,22 @@ public class DataContainer<T> implements Iterable{
     }
 
     public String toString() {
-        String result = "";
+        StringBuilder str = new StringBuilder("[");
+
         int count = 0;
         for(T element : data) {
             count++;
             if(element == null) {
                 continue;
             }
-            result += element.toString();
+            str.append(element.toString());
             if(count == data.length) {
                 break;
             }
-            result += ", ";
+            str.append(", ");
         }
-
-        return "[" + result + "]";
+        str.append("]");
+        return str.toString();
     }
 
     @Override

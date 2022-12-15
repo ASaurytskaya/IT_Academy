@@ -19,8 +19,14 @@ public class DataContainerTest {
     @Test
     @DisplayName("Add null")
     public void add2() {
+        Assertions.assertEquals(-1, container.add(null));
+    }
+
+    @Test
+    @DisplayName("Add numbers")
+    public void add3() {
         container.add(0);
-        Assertions.assertEquals(5, container.add(null));
+        Assertions.assertEquals(5, container.add(10));
     }
 
     @Test
