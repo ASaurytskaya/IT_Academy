@@ -8,7 +8,6 @@ public class Main2 {
         System.out.println("Введите путь к файлу:");
         FileSearcher searcher = new FileSearcher();
         String str = scanner.nextLine();
-        searcher.getFiles(str);
-        System.out.println(searcher.getStat());
+        System.out.println(searcher.getFiles(str));
     }
 }

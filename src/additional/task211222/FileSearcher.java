@@ -6,7 +6,7 @@ import java.util.Objects;
 public class FileSearcher {
 private FileSearchResults result = new FileSearchResults();
 
-    public void getFiles(String str) {
+    public String getFiles(String str) {
         File file = new File(str);
         for(File f : Objects.requireNonNull(file.listFiles())) {
             if(f.isFile()) {
@@ -23,9 +23,6 @@ private FileSearchResults result = new FileSearchResults();
                 getFiles(f.getAbsolutePath());
             }
         }
-    }
-
-    public String getStat() {
         return this.result.toString();
     }
 }

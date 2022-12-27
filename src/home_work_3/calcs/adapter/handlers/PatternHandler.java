@@ -11,6 +11,7 @@ public abstract class PatternHandler implements IHandler {
     public PatternHandler(String regexp) {
         this.pattern = Pattern.compile(regexp);
     }
+
     @Override
     public final String handle(String expression) {
         boolean isMatch;
