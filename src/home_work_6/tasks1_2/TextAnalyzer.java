@@ -1,4 +1,4 @@
-package home_work_6;
+package home_work_6.tasks1_2;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

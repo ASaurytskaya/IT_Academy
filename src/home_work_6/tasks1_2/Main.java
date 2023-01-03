@@ -1,9 +1,9 @@
-package home_work_6;
+package home_work_6.tasks1_2;
 
-import home_work_6.api.ISearchEngine;
-import home_work_6.api.ISearchEngineIgnoreCase;
-import home_work_6.util.EasySearch;
-import home_work_6.util.RegExSearch;
+import home_work_6.tasks3_6.api.ISearchEngine;
+import home_work_6.tasks3_6.api.ISearchEngineIgnoreCase;
+import home_work_6.tasks3_6.util.EasySearch;
+import home_work_6.tasks3_6.util.RegExSearch;
 
 public class Main {
     public static void main(String[] args) {

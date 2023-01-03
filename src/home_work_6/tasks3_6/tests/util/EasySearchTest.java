@@ -1,10 +1,10 @@
-package home_work_6.tests.util;
+package home_work_6.tasks3_6.tests.util;
 
-import home_work_6.util.RegExSearch;
+import home_work_6.tasks3_6.util.EasySearch;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class RegExSearchTest {
+public class EasySearchTest {
     String s1 = "привет, как дела!";
     String s2 = "привет,какдела!";
     String s3 = "привет;какдела!";
@@ -17,7 +17,7 @@ public class RegExSearchTest {
     String s10 = "Мама мыла раму, папа мыл окно";
     String s11 = "-Тоже это ждали?\n-То же самое.\n-То-то же, то, что нужно.";
 
-    RegExSearch es = new RegExSearch();
+    EasySearch es = new EasySearch();
 
     @Test
     public void search1() {
@@ -72,5 +72,16 @@ public class RegExSearchTest {
     @Test
     public void search11() {
         Assertions.assertEquals(1, es.search(s11, "то"));
+    }
+
+    @Test
+    public void search12() {
+        Assertions.assertEquals(1, es.search(s11, "Тоже"));
+    }
+
+    @Test
+    public void search13() {
+        Assertions.assertEquals(2, es.search("когда-нибудь когда- нибудь когда -нибудь когда и нибудь когда-нибудь ",
+                "когда-нибудь"));
     }
 }

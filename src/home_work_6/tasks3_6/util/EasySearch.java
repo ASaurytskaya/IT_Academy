@@ -1,8 +1,8 @@
-package home_work_6.util;
+package home_work_6.tasks3_6.util;
 
-import home_work_6.api.ISearchEngine;
-import home_work_6.api.ISearchEngineIgnoreCase;
-import home_work_6.api.ISearchEnginePunctuationNormalizer;
+import home_work_6.tasks3_6.api.ISearchEngine;
+import home_work_6.tasks3_6.api.ISearchEngineIgnoreCase;
+import home_work_6.tasks3_6.api.ISearchEnginePunctuationNormalizer;
 
 public class EasySearch implements ISearchEngine, ISearchEngineIgnoreCase, ISearchEnginePunctuationNormalizer {
     @Override
