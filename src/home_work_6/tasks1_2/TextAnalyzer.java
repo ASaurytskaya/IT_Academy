@@ -13,7 +13,7 @@ public class TextAnalyzer {
         StringBuilder builder = new StringBuilder();
         try(BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             while(reader.ready()) {
-                builder.append(reader.readLine());
+                builder.append(reader.readLine()).append("/n");
             }
         } catch(FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());

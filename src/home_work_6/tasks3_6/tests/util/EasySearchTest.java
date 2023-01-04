@@ -81,7 +81,7 @@ public class EasySearchTest {
 
     @Test
     public void search13() {
-        Assertions.assertEquals(2, es.search("когда-нибудь когда- нибудь когда -нибудь когда и нибудь когда-нибудь ",
+        Assertions.assertEquals(2, es.search("когда-нибудь\n\nкогда- нибудь когда -нибудь когда и нибудь когда-нибудь ",
                 "когда-нибудь"));
     }
 }
