@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class TextAnalyzer {
-    private static final String wordDelimiterPattern = "([!\"#$%&'()*+,./:;<=>?@\\[\\]^_`{|}~])|(-\\s)|(\\s-)|(\\s)";
+    private static final String wordDelimiterPattern = "([!\"#$%&'()*+,./:;<=>?@\\[\\]^_`{|}~])|(-\\s)|(\\s-)|(\\s)|(\\n)";
 
     public static String getTextString(String filename) {
         StringBuilder builder = new StringBuilder();
