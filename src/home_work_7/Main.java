@@ -13,9 +13,6 @@ public class Main {
             do{
                 c = search.searchWord();
             } while(c > 0);
-
-        } catch(IOException e) {
-            System.out.println("" + e.getMessage());
         } catch(Exception e) {
             System.out.println(e.getMessage());
         }
